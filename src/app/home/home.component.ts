@@ -1,30 +1,56 @@
 import { Component, OnInit } from '@angular/core';
+import "ag-grid-community";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  columnDefs = [
-    { headerName: 'Day', field: 'dayNumberField', width: 30 },
-    { headerName: 'March', field: 'dayField', width: 120 },
-    { headerName: 'Name1', field: 'status1Field', width: 120 },
-    { headerName: 'Namw2', field: 'status2Field', width: 120, },
-    { headerName: 'Name3', field: 'status3Field', width: 120 }
-  ];
+  private columnDefs;
+  private rowData = [];
+  private defaultColDef;
 
-  rowData = [
-    { dayNumberField: '1', dayField: 'Monday', status1Field: 'prwi', status2Field: 'vradi', status3Field: 'repo' },
-    { dayNumberField: '2', dayField: 'Tuesday', status1Field: 'prwi', status2Field: 'repo', status3Field: 'vradi' },
-    { dayNumberField: '3', dayField: 'Wednesday', status1Field: 'repo', status2Field: 'prwi', status3Field: 'vradi' }
-  ];
-
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    this.columnDefs = [
+      { headerName: '', field: 'dayNumberField', width: 38, editable: false, lockPosition: true },
+      { headerName: 'March', field: 'dayField', width: 120, lockPosition: true },
+      {
+        headerName: 'Name1', field: 'statusField1', width: 120, cellEditor: "agSelectCellEditor",
+        cellEditorParams: {
+          cellHeight: 50,
+          values: ["Day", "Night", "Day off", " "]
+        }
+      },
+      {
+        headerName: 'Name2', field: 'statusField2', width: 120, cellEditor: "agSelectCellEditor",
+        cellEditorParams: {
+          cellHeight: 50,
+          values: ["Day", "Night", "Day off", " "]
+        }
+      },
+      {
+        headerName: 'Name3', field: 'statusField3', width: 120, cellEditor: "agSelectCellEditor",
+        cellEditorParams: {
+          cellHeight: 50,
+          values: ["Day", "Night", "Day off", " "]
+        }
+      }
+    ];
+    for (let i = 1; i <= 31; i++) {
+      this.rowData.push({
+        dayNumberField: i,
+        dayField: '',
+        statusField1: '',
+        statusField2: '',
+        statusField3: ''
+      });
+    }
+    this.defaultColDef = {
+      editable: true
+    };
   }
+
 
 }
