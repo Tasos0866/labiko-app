@@ -23,13 +23,14 @@ export class AppComponent {
   constructor(translate: TranslateService) {
     this.translate = translate;
     translate.setDefaultLang("en");
+    this.language = "en";
     this.showGrid = false;
   }
 
   switchLanguage(language: string) {
     this.translate.use(language);
     this.language = language;
-    this.homeComponent = new HomeComponent();
+    this.homeComponent = new HomeComponent(this.translate);
     this.homeComponent.setLanguage(language);
   }
 
