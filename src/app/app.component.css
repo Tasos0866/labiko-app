@@ -1,0 +1,35 @@
+.container {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1.1fr;
+    grid-template-rows: 97vh;
+    width: 100%;
+}
+
+.monthText {
+    padding: 60px 0px 2px 0px;
+    display: block;
+    font-size: 22px;
+}
+
+.dayText {
+    padding: 30px 0px 2px 0px;
+    display: block;
+    font-size: 22px;
+}
+
+#left {
+    grid-row: 1/1;
+    grid-column: 1/1;
+}
+
+#center {
+    grid-row: 1/1;
+    grid-column: 2/2;
+    overflow: hidden;
+    padding: 0px 35px;
+}
+
+#right {
+    grid-row: 1/1;
+    grid-column: 3/3;
+}
