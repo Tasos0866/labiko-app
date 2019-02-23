@@ -15,7 +15,8 @@
     background-color: rgb(255, 0, 21);
     width: 400px;
     height: 101px;
-    display: inline-block;
+    top:0%;
+    left: 0%;
     border: none;
     color: white;
     text-align: left;
@@ -34,6 +35,27 @@
   .nav-img {
     position: absolute;
     max-width: 8.3%;
-    top:0;
-    right: 0;
+    top:0%;
+    right: 0%;
+  }
+
+  .translate {
+    position: absolute;
+    top:79%;
+  }
+
+  .flag-icon-gb {
+    left: 1050%;
+  }
+
+  .flag-icon-gr {
+    left: 1053%;
+  }
+
+  .flag-icon-gb:hover {
+    opacity: 0.8;
+  }
+
+  .flag-icon-gr:hover {
+    opacity: 0.8;
   }
