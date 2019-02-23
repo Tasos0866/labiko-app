@@ -15,7 +15,8 @@
     background-color: rgb(255, 0, 21);
     width: 400px;
     height: 101px;
-    display: inline-block;
+    top:0%;
+    left: 0%;
     border: none;
     color: white;
     text-align: left;
@@ -34,6 +35,6 @@
   .nav-img {
     position: absolute;
     max-width: 8.3%;
-    top:0;
-    right: 0;
+    top:0%;
+    right: 0%;
   }

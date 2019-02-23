@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TranslateService } from "@ngx-translate/core";
+import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
@@ -6,14 +8,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  private translate: TranslateService;
+  language: string;
   day: string;
   month: string;
   firstEmployee: string;
   secondEmployee: string;
   thirdEmployee: string;
-  showGrid = false;
+  showGrid: boolean;
   months = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   days = ["", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  private homeComponent: any;
+
+  constructor(translate: TranslateService) {
+    this.translate = translate;
+    translate.setDefaultLang("en");
+    this.language = "en";
+    this.showGrid = false;
+  }
+
+  switchLanguage(language: string) {
+    this.translate.use(language);
+    this.language = language;
+    this.homeComponent = new HomeComponent(this.translate);
+    this.homeComponent.setLanguage(language);
+  }
 
   nextClicked(day: string, month: string, firstEmployee: string, secondEmployee: string, thirdEmployee: string) {
     if ((day != "") && (month != "") && (firstEmployee != "") && (secondEmployee != "") && (thirdEmployee != "")) {
