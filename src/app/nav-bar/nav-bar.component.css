@@ -1,0 +1,39 @@
+.navbar {
+    background-color: rgb(255, 0, 21);
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .container {
+      width: 100%;
+      position: relative;
+  }
+
+  .navbar-brand {
+    background-color: rgb(255, 0, 21);
+    width: 400px;
+    height: 101px;
+    display: inline-block;
+    border: none;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    font-size: 32px;
+    opacity: 0.8;
+    transition: 0.3s;
+    cursor: pointer;
+    outline: 0;
+  }
+  
+  .navbar-brand:hover {
+    opacity: 1;
+  }
+
+  .nav-img {
+    position: absolute;
+    max-width: 8.3%;
+    top:0;
+    right: 0;
+  }

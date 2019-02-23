@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div id="left"></div>
+
+  <div id="center">
+    <ag-grid-angular
+
+      style="width: 520px; height: 920px;"
+      class="ag-theme-balham"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [singleClickEdit]="true"
+      [stopEditingWhenGridLosesFocus]="true"
+      [suppressDragLeaveHidesColumns]="true">
+    </ag-grid-angular>
+  </div>
+  <div id="right"></div>
+</div>
