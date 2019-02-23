@@ -1,27 +1,38 @@
 <app-nav-bar></app-nav-bar>
 <div class="container" *ngIf="!this.showGrid">
+    <div class="translate">
+        <button (click)="switchLanguage('en')" class="flag-icon
+            flag-icon-gb"></button>
+        <button (click)="switchLanguage('gr')" class="flag-icon
+            flag-icon-gr"></button>
+    </div>
     <div id="left"></div>
     <div id="center">
-        <span class="monthText"> Select the month.</span>
+        <span class="monthText" [translate]="'MonthText'"></span>
         <select #month>
-            <option class="monthList" *ngFor="let m of months">{{ m }}</option>
+            <option class="monthList" *ngFor="let m of months"
+                [translate]='m'></option>
         </select>
-        <span class="dayText"> What is the first day of that month?</span>
+        <span class="dayText" [translate]="'FirstDayText'"></span>
         <select #day>
-            <option class="dayList" *ngFor="let d of days">{{ d }}</option>
+            <option class="dayList" *ngFor="let d of days" [translate]='d'></option>
         </select>
-        <span class="employeeText"> What are the names of the employees?</span>
+        <span class="employeeText" [translate]="'EmployeNamesText'"></span>
         <input class="employeeBox" type="text" #first_employee>
         <input class="employeeBox2" type="text" #secod_employee>
         <input class="employeeBox3" type="text" #third_employee>
         <button class="nextButton" (click)="nextClicked(day.value,
             month.value, first_employee.value, secod_employee.value,
-            third_employee.value)">Next</button>
+            third_employee.value)" [translate]="'NextButton'"></button>
     </div>
     <div id="right"></div>
 </div>
 
-<app-home *ngIf="this.showGrid" [month]="this.month" [day]="this.day"
+<app-home *ngIf="this.showGrid"
+    [language]="this.language"
+    [month]="this.month"
+    [day]="this.day"
     [first_employee]="this.firstEmployee"
     [second_employee]="this.secondEmployee"
-    [third_employee]="this.thirdEmployee"></app-home>
+    [third_employee]="this.thirdEmployee">
+</app-home>

@@ -38,24 +38,3 @@
     top:0%;
     right: 0%;
   }
-
-  .translate {
-    position: absolute;
-    top:79%;
-  }
-
-  .flag-icon-gb {
-    left: 1050%;
-  }
-
-  .flag-icon-gr {
-    left: 1053%;
-  }
-
-  .flag-icon-gb:hover {
-    opacity: 0.8;
-  }
-
-  .flag-icon-gr:hover {
-    opacity: 0.8;
-  }

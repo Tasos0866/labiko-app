@@ -7,6 +7,7 @@ import "ag-grid-community";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  @Input("language") language: string;
   @Input("month") month: string;
   @Input("day") firstMonthDay: string;
   @Input("first_employee") firstEmployee: string;
@@ -80,5 +81,9 @@ export class HomeComponent implements OnInit {
     } else {
       return 30;
     }
+  }
+
+  setLanguage(language: string) {
+    this.language = language;
   }
 }
