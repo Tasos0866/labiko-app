@@ -10,10 +10,18 @@
         <select #day>
             <option class="dayList" *ngFor="let d of days">{{ d }}</option>
         </select>
+        <span class="employeeText"> What are the names of the employees?</span>
+        <input class="employeeBox" type="text" #first_employee>
+        <input class="employeeBox2" type="text" #secod_employee>
+        <input class="employeeBox3" type="text" #third_employee>
         <button class="nextButton" (click)="nextClicked(day.value,
-            month.value)">Next</button>
+            month.value, first_employee.value, secod_employee.value,
+            third_employee.value)">Next</button>
     </div>
     <div id="right"></div>
 </div>
 
-<app-home *ngIf="this.showGrid" [month]="this.month" [day]="this.day"></app-home>
+<app-home *ngIf="this.showGrid" [month]="this.month" [day]="this.day"
+    [first_employee]="this.firstEmployee"
+    [second_employee]="this.secondEmployee"
+    [third_employee]="this.thirdEmployee"></app-home>

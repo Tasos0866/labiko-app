@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import "ag-grid-community";
 
 @Component({
@@ -6,51 +6,79 @@ import "ag-grid-community";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  @Input("month") month: string;
+  @Input("day") firstMonthDay: string;
+  @Input("first_employee") firstEmployee: string;
+  @Input("second_employee") secondEmployee: string;
+  @Input("third_employee") thirdEmployee: string;
 
   private columnDefs;
   private rowData = [];
   private defaultColDef;
+  private daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  private daysOfMonth = [];
 
-  constructor() {
+  ngOnInit() {
     this.columnDefs = [
       { headerName: '', field: 'dayNumberField', width: 38, editable: false, lockPosition: true },
-      { headerName: 'March', field: 'dayField', width: 120, lockPosition: true },
+      { headerName: this.month, field: 'dayField', width: 120, editable: false, lockPosition: true },
       {
-        headerName: 'Name1', field: 'statusField1', width: 120, cellEditor: "agSelectCellEditor",
+        headerName: this.firstEmployee, field: 'statusField1', width: 120, cellEditor: "agSelectCellEditor",
         cellEditorParams: {
           cellHeight: 50,
           values: ["Day", "Night", "Day off", " "]
         }
       },
       {
-        headerName: 'Name2', field: 'statusField2', width: 120, cellEditor: "agSelectCellEditor",
+        headerName: this.secondEmployee, field: 'statusField2', width: 120, cellEditor: "agSelectCellEditor",
         cellEditorParams: {
           cellHeight: 50,
           values: ["Day", "Night", "Day off", " "]
         }
       },
       {
-        headerName: 'Name3', field: 'statusField3', width: 120, cellEditor: "agSelectCellEditor",
+        headerName: this.thirdEmployee, field: 'statusField3', width: 120, cellEditor: "agSelectCellEditor",
         cellEditorParams: {
           cellHeight: 50,
           values: ["Day", "Night", "Day off", " "]
         }
       }
     ];
-    for (let i = 1; i <= 31; i++) {
+    this.defaultColDef = {
+      editable: true
+    };
+
+    this.setDaysOfMonth(this.firstMonthDay);
+
+    for (let i = 1; i <= this.getNumberOfDays(this.month); i++) {
       this.rowData.push({
         dayNumberField: i,
-        dayField: '',
+        dayField: this.daysOfMonth[i - 1],
         statusField1: '',
         statusField2: '',
         statusField3: ''
       });
     }
-    this.defaultColDef = {
-      editable: true
-    };
   }
 
+  setDaysOfMonth(day: string) {
+    let index = this.daysOfWeek.indexOf(day);
+    let totalMonthdays = this.getNumberOfDays(this.month);
+    for (let i = 0; i < totalMonthdays; i = i + 7) {
+      this.daysOfMonth[i] = this.daysOfWeek[index];
+      for (let j = 1; j <= 7 && i + j < totalMonthdays; j++)
+        this.daysOfMonth[i + j] = this.daysOfWeek[(index + j) % 7];
+    }
+  }
 
+  getNumberOfDays(month: string) {
+    if (month == "January" || month == "March" || month == "May" || month == "July" || month == "August" || month == "October" || month == "December") {
+      return 31;
+    } else if (month == "February") {
+      return 28;
+    } else {
+      return 30;
+    }
+  }
 }
