@@ -22,8 +22,8 @@ export class AppComponent {
 
   constructor(translate: TranslateService) {
     this.translate = translate;
-    translate.setDefaultLang("en");
-    this.language = "en";
+    translate.setDefaultLang("gr");
+    this.language = "gr";
     this.showGrid = false;
   }
 
