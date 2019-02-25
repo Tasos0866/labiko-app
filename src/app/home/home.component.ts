@@ -46,6 +46,8 @@ export class HomeComponent implements OnInit {
         }, cellStyle: function (params) {
           if (params.value == "DAY OFF" || params.value == "ΡΕΠΟ") {
             return { color: "red" };
+          } else {
+            return { color: "black" };
           }
         }
       },
@@ -57,6 +59,8 @@ export class HomeComponent implements OnInit {
         }, cellStyle: function (params) {
           if (params.value == "DAY OFF" || params.value == "ΡΕΠΟ") {
             return { color: "red" };
+          } else {
+            return { color: "black" };
           }
         }
       },
@@ -68,6 +72,8 @@ export class HomeComponent implements OnInit {
         }, cellStyle: function (params) {
           if (params.value == "DAY OFF" || params.value == "ΡΕΠΟ") {
             return { color: "red" };
+          } else {
+            return { color: "black" };
           }
         }
       }
