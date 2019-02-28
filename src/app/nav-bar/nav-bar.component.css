@@ -1,40 +1,76 @@
-.navbar {
-    background-color: rgb(255, 0, 21);
-    list-style-type: none;
-    text-align: left;
-    padding: 0;
-    margin: 0;
-  }
+.toolbar {
+  background-color: rgb(255, 0, 21);
+  width: 100%;
+  margin-top: 1.5vh;
+}
   
-  .container {
+.toolbar-brand {
+  flex: auto;
+  background-color: rgb(255, 0, 21);
+  border: none;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+  opacity: 0.8;transition: 0.3s;
+  cursor: pointer;
+  outline: 0;
+}
+
+.toolbar-img {
+  height: 100%;
+  width: auto;
+}
+
+@media screen and (min-width: 1231px) {
+  @media screen and (min-height: 451px) {
+    .toolbar {
+      height: 11vh;
+    }
+
+    .toolbar-brand {
+      font-size: 1.7vw;
+    }
+  }
+  @media screen and (max-height: 450px) {
+    .toolbar {
+      height: 50px;
+    }
+
+    .toolbar-brand {
+      font-size: 18px;
+    }
+  }
+}
+  
+  @media screen and (max-width: 1230px) {
+    .toolbar-brand {
+      font-size: 18px;
+    }
+    @media screen and (min-height: 451px) {
+      .toolbar {
+        height: 11vh;
+      }
+    }
+    @media screen and (max-height: 450px) {
+        .toolbar {
+          height: 50px;
+        }
+    }
+  }
+/*
+  @media screen and (max-height: 500px) {
+    .toolbar {
+      background-color: rgb(255, 0, 21);
       width: 100%;
-      position: relative;
+      margin-top: 1.5vh;
+      height: 80px;
   }
 
-  .navbar-brand {
-    background-color: rgb(255, 0, 21);
-    width: 400px;
-    height: 101px;
-    top:0%;
-    left: 0%;
-    border: none;
-    color: white;
-    text-align: left;
-    font-weight: bold;
-    font-size: 32px;
-    opacity: 0.8;
-    transition: 0.3s;
-    cursor: pointer;
-    outline: 0;
+    .toolbar-brand {
+      font-size: 1.7vw;
+    }
   }
-  
-  .navbar-brand:hover {
+  */
+  .toolbar-brand:hover {
     opacity: 1;
-  }
-
-  .nav-img {
-    position: absolute;
-    max-width: 8.3%;
-    top:0%;
-    right: 0%;
   }

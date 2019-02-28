@@ -10,21 +10,21 @@
     top:35%;
   }
 
-  .flag-icon-gb {
+.flag-icon-gb {
     left: 1520%;
-  }
+}
 
-  .flag-icon-gr {
+.flag-icon-gr {
     left: 1523%;
-  }
+}
 
-  .flag-icon-gb:hover {
+.flag-icon-gb:hover {
     opacity: 0.6;
-  }
+}
 
-  .flag-icon-gr:hover {
+.flag-icon-gr:hover {
     opacity: 0.6;
-  }
+}
 
 .monthText {
     padding: 60px 0px 2px 0px;

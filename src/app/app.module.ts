@@ -4,6 +4,8 @@ import { AgGridModule } from 'ag-grid-angular';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { MatToolbarModule } from "@angular/material";
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -21,7 +23,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
   ],
   imports: [
-    BrowserModule, HttpClientModule,
+    BrowserModule, MatToolbarModule, FlexLayoutModule, HttpClientModule,
     AgGridModule.withComponents([]),
     TranslateModule.forRoot({
       loader: {
