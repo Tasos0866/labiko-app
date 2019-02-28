@@ -1,77 +1,125 @@
+body {
+    background-color:  rgba(243, 243, 231, 0.973);
+  }
+
 .container {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr 1.1fr;
-    grid-template-rows: 97vh;
+    display: flex;
     width: 100%;
 }
 
-.translate {
-    position: absolute;
-    top:35%;
+.left {
+    flex: auto;
+}
+
+.center {
+    flex: auto;
+}
+
+.right {
+    flex:auto;
+}
+
+.flag-icon {
+    position: relative;
+    margin-top: 5vh;
+    padding: 0px 0px 0px 0px;
   }
 
   .flag-icon-gb {
-    left: 1520%;
+    margin-left: 7%;
   }
 
   .flag-icon-gr {
-    left: 1523%;
+    margin-left: 0.2%;
   }
 
-  .flag-icon-gb:hover {
+.flag-icon-gb:hover {
     opacity: 0.6;
-  }
+}
 
-  .flag-icon-gr:hover {
+.flag-icon-gr:hover {
     opacity: 0.6;
-  }
-
-.monthText {
-    padding: 60px 0px 2px 0px;
-    display: block;
-    font-size: 22px;
 }
 
-.dayText {
-    padding: 30px 0px 2px 0px;
+.month-text {
     display: block;
-    font-size: 22px;
+    position: relative;
+    margin-left: 7%;
+    margin-top: 2vh;
 }
 
-.employeeText {
-    padding: 30px 0px 2px 0px;
+.month-list {
     display: block;
-    font-size: 22px;
-}
-.employeeBox1 {
-    display: block;
-    padding: 30px 0px 2px 0px;
-}
-.employeeBox2 {
-    display: block;
-    padding: 0px 0px 2px 0px;
-}
-.employeeBox3 {
-    display: block;
-    padding: 0px 0px 2px 0px;
-}
-.nextButton {
-    display: block;
+    position: relative;
+    margin-left: 7%;
+    margin-top: 0.5vh;
 }
 
-#left {
-    grid-row: 1/1;
-    grid-column: 1/1;
+.day-text {
+    display: block;
+    position: relative;
+    margin-left: 7%;
+    margin-top: 2vh;
 }
 
-#center {
-    grid-row: 1/1;
-    grid-column: 2/2;
-    overflow: hidden;
-    padding: 0px 35px;
+.day-list {
+    display: block;
+    position: relative;
+    margin-left: 7%;
+    margin-top: 0.5vh;
 }
 
-#right {
-    grid-row: 1/1;
-    grid-column: 3/3;
+.employee-text {
+    display: block;
+    margin-left: 7%;
+    margin-top: 2vh;
+}
+.employee-box {
+    display: block;
+    margin-left: 7%;
+    margin-top: 0.5vh;
+}
+.employee-box2 {
+    display: block;
+    margin-left: 7%;
+    margin-top: 0.3vh;
+}
+.employee-box3 {
+    display: block;
+    position: relative;
+    margin-left: 7%;
+    margin-top: 0.3vh;
+}
+.next-button {
+    display: block;
+    position: relative;
+    margin-left: 7%;
+    margin-top: 1vh;
+}
+
+@media screen and (min-width: 451px) {
+    .month-text {
+        font-size: 23px;
+    }
+    
+    .day-text {
+        font-size: 23px;
+    }
+
+    .employee-text {
+        font-size: 23px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .month-text {
+        font-size: 19px;
+    }
+
+    .day-text {
+        font-size: 19px;
+    }
+    .employee-text {
+        font-size: 19px;
+    }
 }
