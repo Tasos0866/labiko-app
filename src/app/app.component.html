@@ -1,31 +1,29 @@
 <app-nav-bar></app-nav-bar>
 <div class="container" *ngIf="!this.showGrid">
-    <div class="translate">
+    <div class="left"></div>
+    <div class="center">
         <button (click)="switchLanguage('en')" class="flag-icon
             flag-icon-gb"></button>
         <button (click)="switchLanguage('gr')" class="flag-icon
             flag-icon-gr"></button>
-    </div>
-    <div id="left"></div>
-    <div id="center">
-        <span class="monthText" [translate]="'MonthText'"></span>
-        <select #month>
-            <option class="monthList" *ngFor="let m of months"
+        <span class="month-text" [translate]="'MonthText'"></span>
+        <select #month class="month-list">
+            <option *ngFor="let m of months"
                 [translate]='m'></option>
         </select>
-        <span class="dayText" [translate]="'FirstDayText'"></span>
-        <select #day>
-            <option class="dayList" *ngFor="let d of days" [translate]='d'></option>
+        <span class="day-text" [translate]="'FirstDayText'"></span>
+        <select #day class="day-list">
+            <option *ngFor="let d of days" [translate]='d'></option>
         </select>
-        <span class="employeeText" [translate]="'EmployeNamesText'"></span>
-        <input class="employeeBox" type="text" #first_employee>
-        <input class="employeeBox2" type="text" #secod_employee>
-        <input class="employeeBox3" type="text" #third_employee>
-        <button class="nextButton" (click)="nextClicked(day.value,
+        <span class="employee-text" [translate]="'EmployeNamesText'"></span>
+        <input class="employee-box" type="text" #first_employee>
+        <input class="employee-box2" type="text" #secod_employee>
+        <input class="employee-box3" type="text" #third_employee>
+        <button class="next-button" (click)="nextClicked(day.value,
             month.value, first_employee.value, secod_employee.value,
             third_employee.value)" [translate]="'NextButton'"></button>
     </div>
-    <div id="right"></div>
+    <div class="right"></div>
 </div>
 
 <app-home *ngIf="this.showGrid"

@@ -11,7 +11,8 @@
   color: white;
   text-align: left;
   font-weight: bold;
-  opacity: 0.8;transition: 0.3s;
+  opacity: 0.85;
+  transition: 0.3s;
   cursor: pointer;
   outline: 0;
 }
