@@ -1,25 +1,21 @@
 .container {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr 1.1fr;
-    grid-template-rows: 97vh;
-    width: 100%;
+    display: flex;
 }
 
-#left {
-    grid-row: 1/1;
-    grid-column: 1/1;
-    background: gray;
+.left {
+    flex: auto;
+    background-color:  rgba(243, 243, 231, 0.973);
 }
 
-#center {
-    grid-row: 1/1;
-    grid-column: 2/2;
+.center {
+    flex: auto;
+    background-color:  rgba(243, 243, 231, 0.973);
+    max-height: 110vh;
     overflow: hidden;
-    padding: 0px 35px;
+    margin-bottom: 0.5vh;
 }
 
-#right {
-    grid-row: 1/1;
-    grid-column: 3/3;
-    background: rgb(128, 128, 128);
+.right {
+    flex:auto;
+    background-color:  rgba(243, 243, 231, 0.973);
 }

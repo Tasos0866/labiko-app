@@ -22,6 +22,9 @@ export class HomeComponent implements OnInit {
   private daysOfMonth = [];
   private translate: TranslateService;
   private workStatus;
+  private gridApi;
+  private gridColumnApi;
+  getRowHeight;
 
   constructor(translate: TranslateService) {
     this.translate = translate;
@@ -36,12 +39,11 @@ export class HomeComponent implements OnInit {
       this.daysOfWeek = ["Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο", "Κυριακή"];
     }
     this.columnDefs = [
-      { headerName: '', field: 'dayNumberField', width: 38, editable: false, lockPosition: true },
-      { headerName: this.month, field: 'dayField', width: 120, editable: false, lockPosition: true },
+      { headerName: '', field: 'dayNumberField', maxWidth: 38, editable: false, lockPosition: true },
+      { headerName: this.month, field: 'dayField', maxWidth: 120, editable: false, lockPosition: true },
       {
-        headerName: this.firstEmployee, field: 'statusField1', width: 120, cellEditor: "agSelectCellEditor",
+        headerName: this.firstEmployee, field: 'statusField1', maxWidth: 120, cellEditor: "agSelectCellEditor",
         cellEditorParams: {
-          cellHeight: 50,
           values: this.workStatus
         }, cellStyle: function (params) {
           if (params.value == "DAY OFF" || params.value == "ΡΕΠΟ") {
@@ -52,9 +54,8 @@ export class HomeComponent implements OnInit {
         }
       },
       {
-        headerName: this.secondEmployee, field: 'statusField2', width: 120, cellEditor: "agSelectCellEditor",
+        headerName: this.secondEmployee, field: 'statusField2', maxWidth: 120, cellEditor: "agSelectCellEditor",
         cellEditorParams: {
-          cellHeight: 50,
           values: this.workStatus
         }, cellStyle: function (params) {
           if (params.value == "DAY OFF" || params.value == "ΡΕΠΟ") {
@@ -65,9 +66,8 @@ export class HomeComponent implements OnInit {
         }
       },
       {
-        headerName: this.thirdEmployee, field: 'statusField3', width: 120, cellEditor: "agSelectCellEditor",
+        headerName: this.thirdEmployee, field: 'statusField3', maxWidth: 120, cellEditor: "agSelectCellEditor",
         cellEditorParams: {
-          cellHeight: 50,
           values: this.workStatus
         }, cellStyle: function (params) {
           if (params.value == "DAY OFF" || params.value == "ΡΕΠΟ") {
@@ -78,6 +78,11 @@ export class HomeComponent implements OnInit {
         }
       }
     ];
+
+    this.getRowHeight = function () {
+      return currentRowHeight;
+    };
+
     this.defaultColDef = {
       editable: true
     };
@@ -93,6 +98,34 @@ export class HomeComponent implements OnInit {
         statusField3: ''
       });
     }
+  }
+
+  onGridSizeChanged(params) {
+    var gridHeight = document.getElementsByClassName("container")[0].clientHeight;
+    var renderedRows = params.api.getRenderedNodes();
+    if (renderedRows.length * minRowHeight >= gridHeight) {
+      if (currentRowHeight !== minRowHeight) {
+        currentRowHeight = minRowHeight;
+        params.api.resetRowHeights();
+      }
+    } else {
+      //currentRowHeight = Math.floor(gridHeight / renderedRows.length);
+      currentRowHeight = 28;
+      params.api.resetRowHeights();
+    }
+  }
+
+  onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+    minRowHeight = 23;
+    currentRowHeight = minRowHeight;
+    params.api.sizeColumnsToFit();
+    window.addEventListener("resize", function () {
+      setTimeout(function () {
+        params.api.sizeColumnsToFit();
+      });
+    });
   }
 
   setDaysOfMonth(day: string) {
@@ -122,3 +155,5 @@ export class HomeComponent implements OnInit {
     this.language = language;
   }
 }
+var minRowHeight = 23;
+var currentRowHeight = minRowHeight;
