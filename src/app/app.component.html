@@ -19,6 +19,7 @@
         <input class="employee-box" type="text" #first_employee>
         <input class="employee-box2" type="text" #secod_employee>
         <input class="employee-box3" type="text" #third_employee>
+        <span class="mandatory-text" [translate]="'MandatoryText'"></span>
         <button class="next-button" (click)="nextClicked(day.value,
             month.value, first_employee.value, secod_employee.value,
             third_employee.value)" [translate]="'NextButton'"></button>

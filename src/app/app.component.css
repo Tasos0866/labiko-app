@@ -90,6 +90,12 @@ body {
     margin-left: 7%;
     margin-top: 0.3vh;
 }
+
+.mandatory-text {
+    display: block;
+    margin-left: 7%;
+    margin-top: 0.3vh;
+}
 .next-button {
     display: block;
     position: relative;
@@ -109,6 +115,10 @@ body {
     .employee-text {
         font-size: 23px;
     }
+
+    .mandatory-text {
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -121,5 +131,8 @@ body {
     }
     .employee-text {
         font-size: 19px;
+    }
+    .mandatory-text {
+        font-size: 9px;
     }
 }
