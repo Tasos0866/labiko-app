@@ -1,8 +1,8 @@
 {
     "Brand": "Programma Labiko",
-    "MonthText": "Διάλεξε μήνα:",
+    "MonthText": "Διάλεξε ένα μήνα:",
     "FirstDayText": "Τι μέρα είναι την πρώτη του μηνός;",
-    "EmployeNamesText": "Συμπληρωσε τα ονόματα των υπαλλήλων:",
+    "EmployeNamesText": "Ποιά είναι τα ονόματα των υπαλλήλων;",
     "NextButton": "Επόμενο",
     "NextButtonToolTip": "Σιγουρέψου πως όλα τα πεδία είναι συμπληρωμένα",
     "SelectMonth": "Διάλεξε μήνα",

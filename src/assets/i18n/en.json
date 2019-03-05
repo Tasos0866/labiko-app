@@ -1,6 +1,6 @@
 {
     "Brand": "Labiko Schedule",
-    "MonthText": "Select the month:",
+    "MonthText": "Please choose a month:",
     "FirstDayText": "What is the first day of that month?",
     "EmployeNamesText": "What are the names of the employees?",
     "NextButton": "Next",
