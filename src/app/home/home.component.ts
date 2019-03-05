@@ -108,7 +108,7 @@ export class HomeComponent implements OnInit {
     html2canvas(document.getElementsByClassName("center")[0]).then(canvas => {
       this.canvas.nativeElement.src = canvas.toDataURL();
       this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
-      this.downloadLink.nativeElement.download = 'marble-diagram.png';
+      this.downloadLink.nativeElement.download = 'schedule.png';
       this.downloadLink.nativeElement.click();
     });
     this.gridApi.setDomLayout('normal');
