@@ -6,6 +6,7 @@
   
 .toolbar-brand {
   flex: auto;
+  width: 420px;
   background-color: rgb(255, 0, 21);
   border: none;
   color: white;
@@ -15,6 +16,11 @@
   transition: 0.3s;
   cursor: pointer;
   outline: 0;
+}
+
+.toolbar-space {
+  flex: auto;
+  width: 100%;
 }
 
 .toolbar-img {
@@ -29,7 +35,7 @@
     }
 
     .toolbar-brand {
-      font-size: 1.7vw;
+      font-size: 33px;
     }
   }
   @media screen and (max-height: 450px) {
