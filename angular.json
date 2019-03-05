@@ -29,7 +29,7 @@
               "node_modules/flag-icon-css/css/flag-icon.min.css"
             ],
             "scripts": [
-              "../node_modules/html2canvas/dist/html2canvas.min.js"
+              "./node_modules/html2canvas/dist/html2canvas.min.js"
             ]
           },
           "configurations": {
