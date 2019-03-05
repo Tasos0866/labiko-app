@@ -7,26 +7,46 @@
         <button (click)="switchLanguage('gr')" class="flag-icon
             flag-icon-gr"></button>
         <span class="month-text" [translate]="'MonthText'"></span>
-        <select #month class="month-list">
-            <option *ngFor="let m of months"
-                [translate]='m'></option>
-        </select>
+        <mat-form-field class="month-list">
+            <mat-select #month [placeholder]="'SelectMonth' | translate">
+                <mat-option *ngFor="let m of months" [value]="m | translate">
+                    {{m | translate}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
         <span class="day-text" [translate]="'FirstDayText'"></span>
-        <select #day class="day-list">
-            <option *ngFor="let d of days" [translate]='d'></option>
-        </select>
+        <mat-form-field class="day-list">
+            <mat-select #day [placeholder]="'SelectDay' | translate">
+                <mat-option *ngFor="let d of days" [value]="d | translate">
+                    {{d | translate}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
         <span class="employee-text" [translate]="'EmployeNamesText'"></span>
-        <input class="employee-box" type="text" #first_employee>
-        <input class="employee-box2" type="text" #secod_employee>
-        <input class="employee-box3" type="text" #third_employee>
-        <span class="mandatory-text" [translate]="'MandatoryText'"></span>
-        <button class="next-button" (click)="nextClicked(day.value,
+        <mat-form-field class="employee-box">
+            <input matInput [placeholder]="'Name' | translate" value=""
+                #first_employee>
+        </mat-form-field>
+        <mat-form-field class="employee-box2">
+            <input matInput [placeholder]="'Name' | translate" value=""
+                #secod_employee>
+        </mat-form-field>
+        <mat-form-field class="employee-box3">
+            <input matInput [placeholder]="'Name' | translate" value=""
+                #third_employee>
+        </mat-form-field>
+        <a mat-stroked-button matTooltip="{{'NextButtonToolTip' | translate}}"
+            style="max-width: 90px; display: block;
+            position: relative;
+            margin-left: 7%;
+            margin-top: 1vh;
+            background-color: rgb(123, 226, 221)"
+            (click)="nextClicked(day.value,
             month.value, first_employee.value, secod_employee.value,
-            third_employee.value)" [translate]="'NextButton'"></button>
+            third_employee.value)">{{'NextButton' | translate}}</a>
     </div>
     <div class="right"></div>
 </div>
-
 <app-home *ngIf="this.showGrid"
     [language]="this.language"
     [month]="this.month"
