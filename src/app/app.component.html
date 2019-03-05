@@ -2,10 +2,14 @@
 <div class="container" *ngIf="!this.showGrid">
     <div class="left"></div>
     <div class="center">
-        <button (click)="switchLanguage('en')" class="flag-icon
-            flag-icon-gb"></button>
-        <button (click)="switchLanguage('gr')" class="flag-icon
-            flag-icon-gr"></button>
+        <a mat-mini-fab (click)="switchLanguage('en')"
+            class="flag-icon-gb" style="width: 30px; height: 30px; margin-left:
+            7%;
+            margin-top:
+            3vh;"></a>
+        <a mat-mini-fab (click)="switchLanguage('gr')"
+            class="flag-icon-gr" style="width: 30px; height: 30px; margin-left:
+            6px;"></a>
         <span class="month-text" [translate]="'MonthText'"></span>
         <mat-form-field class="month-list">
             <mat-select #month [placeholder]="'SelectMonth' | translate">
