@@ -28,7 +28,9 @@
               "./node_modules/ag-grid-community/dist/styles/ag-theme-balham.css",
               "node_modules/flag-icon-css/css/flag-icon.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "../node_modules/html2canvas/dist/html2canvas.min.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -26,7 +26,7 @@ export class AppComponent {
     this.translate = translate;
     translate.setDefaultLang("gr");
     this.language = "gr";
-    this.showGrid = false;
+    this.showGrid = true;
   }
 
   switchLanguage(language: string) {
