@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+}
+
+.left {
+    flex: auto;
+    background-color:  rgba(243, 243, 231, 0.973);
+}
+
+.center {
+    flex: auto;
+    background-color:  rgba(243, 243, 231, 0.973);
+    max-width: 520px;
+    max-height: 920px;
+    overflow: hidden;
+    margin-bottom: 0.5vh;
+}
+
+.right {
+    flex:auto;
+    background-color:  rgba(243, 243, 231, 0.973);
+}
+
+#download {
+    display: none;
+  }

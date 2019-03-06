@@ -1,0 +1,107 @@
+body {
+    background-color:  rgba(243, 243, 231, 0.973);
+  }
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.left {
+    flex: auto;
+}
+
+.center {
+    flex: auto;
+}
+
+.right {
+    flex:auto;
+}
+
+.flag-icon-gb:hover {
+    opacity: 0.5;
+}
+
+.flag-icon-gr:hover {
+    opacity: 0.5;
+}
+
+.month-text {
+    display: block;
+    position: relative;
+    margin-left: 7%;
+    margin-top: 2vh;
+}
+
+.month-list {
+    display: block;
+    position: relative;
+    margin-left: 7%;
+    margin-top: 0.5vh;
+}
+
+.day-text {
+    display: block;
+    position: relative;
+    margin-left: 7%;
+    margin-top: 2vh;
+}
+
+.day-list {
+    display: block;
+    position: relative;
+    margin-left: 7%;
+    margin-top: 0.5vh;
+}
+
+.employee-text {
+    display: block;
+    margin-left: 7%;
+    margin-top: 2vh;
+}
+
+.employee-box {
+    margin-left: 7%;
+}
+
+.employee-box2 {
+    margin-left: 7%;
+}
+
+.employee-box3 {
+    margin-left: 7%;
+}
+
+.mandatory-text {
+    display: block;
+    margin-left: 7%;
+    margin-top: 0.3vh;
+}
+
+@media screen and (min-width: 451px) {
+    .month-text {
+        font-size: 23px;
+    }
+    
+    .day-text {
+        font-size: 23px;
+    }
+
+    .employee-text {
+        font-size: 23px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .month-text {
+        font-size: 19px;
+    }
+
+    .day-text {
+        font-size: 19px;
+    }
+    .employee-text {
+        font-size: 19px;
+    }
+}
