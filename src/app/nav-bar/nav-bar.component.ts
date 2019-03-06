@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class NavBarComponent {
-
+  reload() {
+    window.location.reload();
+  }
 }

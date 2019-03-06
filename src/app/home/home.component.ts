@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, Input, OnInit } from '@angular/core';
 import { TranslateService } from "@ngx-translate/core";
 import "ag-grid-community";
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,8 @@ export class HomeComponent implements OnInit {
   @Input("first_employee") firstEmployee: string;
   @Input("second_employee") secondEmployee: string;
   @Input("third_employee") thirdEmployee: string;
+  @ViewChild('canvas') canvas: ElementRef;
+  @ViewChild('downloadLink') downloadLink: ElementRef;
 
   columnDefs;
   rowData = [];
@@ -98,6 +101,17 @@ export class HomeComponent implements OnInit {
         statusField3: ''
       });
     }
+  }
+
+  downloadImage() {
+    this.gridApi.setDomLayout('print');
+    html2canvas(document.getElementsByClassName("center")[0]).then(canvas => {
+      this.canvas.nativeElement.src = canvas.toDataURL();
+      this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
+      this.downloadLink.nativeElement.download = 'schedule.png';
+      this.downloadLink.nativeElement.click();
+    });
+    this.gridApi.setDomLayout('normal');
   }
 
   onGridSizeChanged(params) {
