@@ -1,20 +1,23 @@
 import { Component, ElementRef, ViewChild, Input, OnInit } from '@angular/core';
-import { TranslateService } from "@ngx-translate/core";
-import "ag-grid-community";
+import { TranslateService } from '@ngx-translate/core';
+import 'ag-grid-community';
 import html2canvas from 'html2canvas';
+const minRowHeight = 23;
+let currentRowHeight = minRowHeight;
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
-  @Input("language") language: string;
-  @Input("month") month: string;
-  @Input("day") firstMonthDay: string;
-  @Input("first_employee") firstEmployee: string;
-  @Input("second_employee") secondEmployee: string;
-  @Input("third_employee") thirdEmployee: string;
+  @Input('language') language: string;
+  @Input('month') month: string;
+  @Input('day') firstMonthDay: string;
+  @Input('first_employee') firstEmployee: string;
+  @Input('second_employee') secondEmployee: string;
+  @Input('third_employee') thirdEmployee: string;
   @ViewChild('canvas') canvas: ElementRef;
   @ViewChild('downloadLink') downloadLink: ElementRef;
 
@@ -34,49 +37,49 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.language == "en") {
-      this.workStatus = ["DAY", "NIGHT", "DAY OFF", " "];
-      this.daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    if (this.language === 'en') {
+      this.workStatus = ['DAY', 'NIGHT', 'DAY OFF', ' '];
+      this.daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     } else {
-      this.workStatus = ["ΠΡΩΙ", "ΒΡΑΔΥ", "ΡΕΠΟ", " "];
-      this.daysOfWeek = ["Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο", "Κυριακή"];
+      this.workStatus = ['ΠΡΩΙ', 'ΒΡΑΔΥ', 'ΡΕΠΟ', ' '];
+      this.daysOfWeek = ['Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο', 'Κυριακή'];
     }
     this.columnDefs = [
       { headerName: '', field: 'dayNumberField', maxWidth: 38, editable: false, lockPosition: true },
       { headerName: this.month, field: 'dayField', maxWidth: 120, editable: false, lockPosition: true },
       {
-        headerName: this.firstEmployee, field: 'statusField1', maxWidth: 120, cellEditor: "agSelectCellEditor",
+        headerName: this.firstEmployee, field: 'statusField1', maxWidth: 120, cellEditor: 'agSelectCellEditor',
         cellEditorParams: {
           values: this.workStatus
         }, cellStyle: function (params) {
-          if (params.value == "DAY OFF" || params.value == "ΡΕΠΟ") {
-            return { color: "red" };
+          if (params.value === 'DAY OFF' || params.value === 'ΡΕΠΟ') {
+            return { color: 'red' };
           } else {
-            return { color: "black" };
+            return { color: 'black' };
           }
         }
       },
       {
-        headerName: this.secondEmployee, field: 'statusField2', maxWidth: 120, cellEditor: "agSelectCellEditor",
+        headerName: this.secondEmployee, field: 'statusField2', maxWidth: 120, cellEditor: 'agSelectCellEditor',
         cellEditorParams: {
           values: this.workStatus
         }, cellStyle: function (params) {
-          if (params.value == "DAY OFF" || params.value == "ΡΕΠΟ") {
-            return { color: "red" };
+          if (params.value === 'DAY OFF' || params.value === 'ΡΕΠΟ') {
+            return { color: 'red' };
           } else {
-            return { color: "black" };
+            return { color: 'black' };
           }
         }
       },
       {
-        headerName: this.thirdEmployee, field: 'statusField3', maxWidth: 120, cellEditor: "agSelectCellEditor",
+        headerName: this.thirdEmployee, field: 'statusField3', maxWidth: 120, cellEditor: 'agSelectCellEditor',
         cellEditorParams: {
           values: this.workStatus
         }, cellStyle: function (params) {
-          if (params.value == "DAY OFF" || params.value == "ΡΕΠΟ") {
-            return { color: "red" };
+          if (params.value === 'DAY OFF' || params.value === 'ΡΕΠΟ') {
+            return { color: 'red' };
           } else {
-            return { color: "black" };
+            return { color: 'black' };
           }
         }
       }
@@ -105,7 +108,7 @@ export class HomeComponent implements OnInit {
 
   downloadImage() {
     this.gridApi.setDomLayout('print');
-    html2canvas(document.getElementsByClassName("center")[0]).then(canvas => {
+    html2canvas(document.getElementsByClassName('center')[0]).then(canvas => {
       this.canvas.nativeElement.src = canvas.toDataURL();
       this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
       this.downloadLink.nativeElement.download = 'schedule.png';
@@ -115,15 +118,15 @@ export class HomeComponent implements OnInit {
   }
 
   onGridSizeChanged(params) {
-    var gridHeight = document.getElementsByClassName("container")[0].clientHeight;
-    var renderedRows = params.api.getRenderedNodes();
+    const gridHeight = document.getElementsByClassName('container')[0].clientHeight;
+    const renderedRows = params.api.getRenderedNodes();
     if (renderedRows.length * minRowHeight >= gridHeight) {
       if (currentRowHeight !== minRowHeight) {
         currentRowHeight = minRowHeight;
         params.api.resetRowHeights();
       }
     } else {
-      //currentRowHeight = Math.floor(gridHeight / renderedRows.length);
+      // currentRowHeight = Math.floor(gridHeight / renderedRows.length);
       currentRowHeight = 28;
       params.api.resetRowHeights();
     }
@@ -132,10 +135,9 @@ export class HomeComponent implements OnInit {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    minRowHeight = 23;
     currentRowHeight = minRowHeight;
     params.api.sizeColumnsToFit();
-    window.addEventListener("resize", function () {
+    window.addEventListener('resize', function () {
       setTimeout(function () {
         params.api.sizeColumnsToFit();
       });
@@ -143,22 +145,25 @@ export class HomeComponent implements OnInit {
   }
 
   setDaysOfMonth(day: string) {
-    let index = this.daysOfWeek.indexOf(day);
-    let totalMonthdays = this.getNumberOfDays(this.month);
+    const index = this.daysOfWeek.indexOf(day);
+    const totalMonthdays = this.getNumberOfDays(this.month);
     for (let i = 0; i < totalMonthdays; i = i + 7) {
       this.daysOfMonth[i] = this.daysOfWeek[index];
-      for (let j = 1; j <= 7 && i + j < totalMonthdays; j++)
+      for (let j = 1; j <= 7 && i + j < totalMonthdays; j++) {
         this.daysOfMonth[i + j] = this.daysOfWeek[(index + j) % 7];
+      }
     }
   }
 
   getNumberOfDays(month: string) {
     // The same months are checked in both languages
-    if (month == "January" || month == "March" || month == "May" || month == "July" || month == "August" || month == "October" || month == "December" ||
-      month == "Ιανουάριος" || month == "Μάρτιος" || month == "Μάιος" || month == "Ιούλιος" || month == "Αύγουστος" || month == "Οκτώβριος" || month == "Δεκέμβριος"
+    if (month === 'January' || month === 'March' || month === 'May' || month === 'July'
+      || month === 'August' || month === 'October' || month === 'December' ||
+      month === 'Ιανουάριος' || month === 'Μάρτιος' || month === 'Μάιος' || month === 'Ιούλιος' || month === 'Αύγουστος'
+      || month === 'Οκτώβριος' || month === 'Δεκέμβριος'
     ) {
       return 31;
-    } else if (month == "February" || month == "Φεβρουάριος") {
+    } else if (month === 'February' || month === 'Φεβρουάριος') {
       return 28;
     } else {
       return 30;
@@ -169,5 +174,3 @@ export class HomeComponent implements OnInit {
     this.language = language;
   }
 }
-var minRowHeight = 23;
-var currentRowHeight = minRowHeight;
