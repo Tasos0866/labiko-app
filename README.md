@@ -1,6 +1,8 @@
 # LabikoApp
 
-https://tasos0866.github.io/labiko-app/
+This is a scheduler web application. Check it out [here](https://tasos0866.github.io/labiko-app/)
+
+---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
 
